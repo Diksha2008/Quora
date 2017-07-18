@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<main class="wrapper">
+  <section>
+    <% @questions.each do |ques| %>
+      <%= render 'question', ques: ques %>
+    <% end %>
+  </section>
+</main>
+
+
+

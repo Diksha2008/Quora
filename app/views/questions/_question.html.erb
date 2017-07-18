@@ -1,0 +1,22 @@
+<div class="question">
+	<h2 class="quesContent"><%= ques.content %></h2>
+	<div id="actions">
+	  <button id="editor_<%=ques.id%>">Answer</button>
+	  <div id="editContainer_<%=ques.id%>">
+	  	<textarea id="ansEditor_<%=ques.id%>"></textarea>
+	  	<%= button_to "Submit"%>
+	  </div>
+	</div>
+</div>
+<style type="text/css">
+	#editContainer_<%=ques.id%>{
+		display: none;
+	}
+</style>
+<script type="text/javascript">
+	$('#editor_<%=ques.id%>').click(function(){
+		$('#editor_<%=ques.id%>').hide();
+		CKEDITOR.replace( 'ansEditor_<%=ques.id%>');
+		$('#editContainer_<%=ques.id%>').show();
+	})
+</script>

@@ -1,0 +1,30 @@
+<% if user_signed_in? %>
+    <header class="siteHeader">
+    <div class="logo">
+      <%= image_tag 'download.png' %>
+    </div>
+   <%= form_for @question do |f| %>
+   <div class="field">
+      <%= f.text_field :content , :size => 25 %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Ask question" %>
+    </div>
+  <% end %>
+    <nav>
+      <ul>
+        <li>Read</li>
+        <li>
+          <%= link_to "Answer", :controller => "questions", :action => "index" %>
+        </li>
+        <li>Profile</li>
+      </ul>
+    </nav>
+</header> 
+
+<% end %>
+<main>
+   
+</main>
+

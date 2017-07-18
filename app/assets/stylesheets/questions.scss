@@ -1,0 +1,22 @@
+// Place all the styles related to the Questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+main.wrapper {
+	background-color: #fafafa;
+	display: flex;
+	justify-content: center;
+	section {
+		background-color: #fff;
+		border: 1px solid #e2e2e2;
+		width: 50%;
+		border-radius: 6px;
+		h2.quesContent{
+			margin-top: 8px;
+		}
+		div.question{
+			border-bottom: 1px solid #e2e2e2;
+			padding:12px;
+		}
+	}
+}
