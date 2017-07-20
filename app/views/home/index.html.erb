@@ -1,30 +1,22 @@
-<% if user_signed_in? %>
-    <header class="siteHeader">
-    <div class="logo">
-      <%= image_tag 'download.png' %>
-    </div>
-   <%= form_for @question do |f| %>
-   <div class="field">
-      <%= f.text_field :content , :size => 25 %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Ask question" %>
-    </div>
-  <% end %>
-    <nav>
-      <ul>
-        <li>Read</li>
-        <li>
-          <%= link_to "Answer", :controller => "questions", :action => "index" %>
-        </li>
-        <li>Profile</li>
-      </ul>
-    </nav>
-</header> 
-
-<% end %>
-<main>
-   
+<main class="wrapper">
+  <section class="box">
+    <% @questions.each do |ques| %>
+	    	<% if ques.answers.first %>
+	    		<div class="question">
+		    		<h2 class="quesContent"><%= ques.content %></h2>
+		    		<div class="answerOf">
+		    			<aside>
+		    				<img src="/uploads/<%= ques.answers.first.user.profile_picture%>">
+		    			</aside>
+		    			<h4><%= ques.answers.first.user.email %></h4>
+		    		</div>
+		    		<div class="answer">
+		      			<%= raw(ques.answers.first.content) %>
+		      		</div>
+	      		</div>
+	      	<% end %>
+    <% end %>
+  </section>  
 </main>
+
 

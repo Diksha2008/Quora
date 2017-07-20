@@ -1,11 +1,5 @@
-class QuestionsController < ApplicationController
+class QuestionsController < SetLayoutController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  layout 'logined'
-  before_filter :set_new
-
-  def set_new
-    @question = Question.new
-  end
 
   def index
     @questions = Question.all

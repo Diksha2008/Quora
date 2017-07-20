@@ -18,34 +18,5 @@
  	margin: 0
  }
 
- header.siteHeader{
- 	display: flex;
- 	justify-content: space-between;
- 	align-items: center;
- 	height: 100px;
- 	box-shadow: 0 2px 5px 0 grey;
- 	div.logo {
- 		margin: 12px 0 6px 24px;
- 		img{
-		 	height: 50px;
-		 }
- 	}
- 	form{
- 		display: flex;
- 		width: 100%;
- 		justify-content: center;
- 		input{
- 			margin-right: 24px;
- 		}	
- 	}
- 	nav ul {
-	 	display: flex;
-	 	li {
-		 	list-style: none;
-		 	margin-right: 12px;
-		 	font-size: 15px;
-		}
-	}
- }
 
  

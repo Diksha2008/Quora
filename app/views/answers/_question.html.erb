@@ -2,10 +2,19 @@
 	<h2 class="quesContent"><%= ques.content %></h2>
 	<div id="actions">
 	  <button id="editor_<%=ques.id%>">Answer</button>
-	  <div id="editContainer_<%=ques.id%>">
-	  	<textarea id="ansEditor_<%=ques.id%>"></textarea>
-	  	<%= button_to "Submit", { :controller => "answers", :action => "create"}%>
-	  </div>
+	  
+	  <%=  form_for(@answer, :html => {:id => "editContainer_#{ques.id}"}) do |f| %>
+		  	<div class="field">
+			    <%= f.text_area :content , :id => "ansEditor_#{ques.id}" %>
+	  		</div>
+	  		<!-- Hidden field to get the id of the question to which answer belongs -->
+	  		<div class="field">
+			    <%= f.hidden_field :question_id , value: ques.id %>
+	  		</div>
+	  		<div class="submit">
+				<%= f.submit "Submit Answer"%>
+			</div>
+	  <% end %>
 	</div>
 </div>
 <style type="text/css">

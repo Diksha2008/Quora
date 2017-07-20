@@ -1,34 +1,56 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-header.siteHeader{
- 	display: flex;
- 	justify-content: space-between;
- 	align-items: center;
- 	height: 100px;
- 	box-shadow: 0 2px 5px 0 grey;
- 	div.logo {
- 		margin: 12px 0 6px 24px;
- 		img{
-		 	height: 50px;
-		 }
- 	}
- 	form{
- 		display: flex;
- 		width: 100%;
- 		justify-content: center;
- 		input{
- 			margin-right: 24px;
- 		}	
- 	}
- 	nav ul {
-	 	display: flex;
-	 	li {
-		 	list-style: none;
-		 	margin-right: 12px;
-		 	font-size: 15px;
+main.wrapper {
+	section.box {
+		div.profilePic{
+			display: flex;
+			justify-content: center;
+			padding: 16px;
+			img{
+				height: 150px;
+				width: 150px;
+				border-radius: 50%;
+				border: 1px solid grey;
+			}
+		}
+		div.changePic{
+			text-align: center;
+			form#browse {
+				margin: 0 auto;
+				display: flex;
+				justify-content: center;
+				border: 1px solid #e2e2e2;
+				padding: 16px;
+			}
+			input[type=file] {
+				width: 180px;
+				margin-right: 12px;
+			}
+		}
+		div.details {
+			text-align: center;
+			margin: 12px;
+			span.data {
+				font-weight: bold;
+				font-size: 16px;
+			}
+		}
+		div.answerOf{
+			display: flex;
+			aside img {
+				height: 50px;
+				width: 50px;
+				border-radius: 50%;
+				border: 1px solid grey;
+				margin: 0 8px 12px 12px;
+			}
+		}
+		div.answer {
+			margin-left: 12px;
+			padding: 12px;
 		}
 	}
- }
+}
 
  

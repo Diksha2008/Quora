@@ -1,0 +1,61 @@
+// Place all the styles related to the setLayout controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+header.siteHeader{
+ 	display: flex;
+ 	justify-content: space-between;
+ 	align-items: center;
+ 	height: 60px;
+ 	box-shadow: 0 2px 5px 0 grey;
+ 	div.logo {
+ 		margin: 12px 0 6px 24px;
+ 		img{
+		 	height: 30px;
+		 }
+ 	}
+ 	form{
+ 		display: flex;
+ 		width: 100%;
+ 		justify-content: center;
+ 		input{
+ 			margin-right: 24px;
+ 		}
+ 		input[type=submit]{
+ 			margin-left: 12px;
+ 		}
+ 	}
+ 	nav ul.navigate {
+	 	display: flex;
+	 	li{
+	 		list-style: none;
+	 	}
+	 	li.nav {
+	 		display: flex;
+		 	margin-right: 40px;
+		 	padding: 6px;	
+		 	font-size: 16px;
+		 	i {
+		 		font-size: 24px;
+		 		margin-right: 6px;
+		 	}
+		 	a:hover{
+		 		cursor: pointer;
+		 		text-decoration: none;
+		 		background: none;
+		 	} 	
+		}
+		li.nav:hover {
+		 		background-color: #ececec;
+		 }
+
+		 div.dropdown{
+		 	button{
+		 		margin-right: 24px;
+		 		font-size: 15px;
+		 	}
+		 }
+		 ul.dropdown-menu {
+		 	min-width: 34px;
+		 }
+	}
+ }

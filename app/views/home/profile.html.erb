@@ -1,0 +1,23 @@
+<main class="wrapper">
+	<section class="box">
+		<div class="profilePic">
+			<% if current_user.profile_picture %>
+				<img src="/uploads/<%= current_user.profile_picture %>">
+			<% else %>
+				<img src="profile-pic.png">
+			<% end %>
+		</div>
+		<div class="changePic">
+			<h4>Change profile picture:</h4>
+			<%= form_tag url_for(controller: :home, action: :upload_image), multipart: true, id: "browse" do %>
+			<%= file_field_tag :image%>
+			<br>
+			<%= submit_tag %>
+			<% end %>
+		</div>
+		<div class="details">
+			<span class="data">E-Mail: </span>
+			<span><%= current_user.email %></span><br>
+		</div>
+	</section>
+</main>
