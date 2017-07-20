@@ -12,6 +12,26 @@
 		    		</div>
 		    		<div class="answer">
 		      			<%= raw(ques.answers.first.content) %>
+		      			<%= link_to  "<i class=\"fa fa-arrow-up\" aria-hidden=\"true\"></i> #{ques.answers.first.is_upvoted(current_user.id)}".html_safe , url_for(controller: 'upvote', action: 'newUpvote', ans_id: ques.answers.first.id), method: :post, class: "btn btn-info upvote_#{ques.answers.first.id}" %>
+		      			<% if ques.answers.first.upvoted_by current_user %>
+		      				<style type="text/css">
+		      					.upvote_<%= ques.answers.first.id %>{
+		      						background-color: lightgrey;
+		      						border: 1px solid black	;
+		      					}
+		      					.upvote_<%= ques.answers.first.id %>:hover{
+		      						background-color: lightgrey;
+		      						color: inherit;
+		      						border: 1px solid black;
+		      					}
+		      					.answer .upvote_<%= ques.answers.first.id %>:active{
+		      						background-color: grey;
+		      						color: inherit;
+		      						border: 1px solid black;
+		      					}
+		      				</style>
+		      			<% end %>
+
 		      		</div>
 	      		</div>
 	      	<% end %>
