@@ -5,7 +5,7 @@ class AnswersController < SetLayoutController
   # GET /answers
   # GET /answers.json
   def index
-    @questions = Question.all
+    @questions = Question.all.order('created_at DESC')
     @answer = Answer.new
   end
 
@@ -31,10 +31,10 @@ class AnswersController < SetLayoutController
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
+        format.html { redirect_to '/', notice: 'Answer was successfully submitted.' }
         format.json { render :show, status: :created, location: @answer }
       else
-        format.html { render :new }
+        format.html { redirect_to '/answers', alert: 'You cannot submit blank answer! :(' }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
       end
     end

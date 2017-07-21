@@ -8,6 +8,12 @@ class QuestionsController < SetLayoutController
   # def edit
   # end
 
+  # GET /questions/1
+  # GET /answers/1.json
+  def show
+  end
+  
+
   # POST /questions
   # POST /questions.json
   def create
@@ -16,10 +22,10 @@ class QuestionsController < SetLayoutController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to '/home/index', notice: 'Question was successfully created.' }
+        format.html { redirect_to '/answers', notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
       else
-        format.html { render :new }
+        format.html { redirect_to '/answers', alert: 'Question cannot be blank! :(' }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end

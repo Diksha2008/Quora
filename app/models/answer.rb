@@ -1,6 +1,8 @@
 class Answer < ActiveRecord::Base
+  validates :content, presence: true
   belongs_to :user
   belongs_to :question
+  has_many :upvotes
 
   def upvoted_by user_id
   	Upvote.where(users_id: user_id, answer_id: id).first

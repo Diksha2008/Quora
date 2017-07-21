@@ -1,12 +1,18 @@
 <main class="wrapper">
   <section class="box">
     <% @questions.each do |ques| %>
-	    	<% if ques.answers.first %>
+	    	<% if ques.has_answer? %>
 	    		<div class="question">
-		    		<h2 class="quesContent"><%= ques.content %></h2>
+		    		<h2 class="quesContent">
+		    		<%= link_to  ques.content, question_path(ques) %>
+		    		</h2>
 		    		<div class="answerOf">
 		    			<aside>
-		    				<img src="/uploads/<%= ques.answers.first.user.profile_picture%>">
+		    				<% if ques.answers.first.user.profile_picture %>
+								<img src="/uploads/<%= ques.answers.first.user.profile_picture %>">
+							<% else %>
+								<img src="profile-pic.png">
+							<% end %>
 		    			</aside>
 		    			<h4><%= ques.answers.first.user.email %></h4>
 		    		</div>
@@ -17,12 +23,12 @@
 		      				<style type="text/css">
 		      					.upvote_<%= ques.answers.first.id %>{
 		      						background-color: lightgrey;
-		      						border: 1px solid black	;
+		      						border: 1px solid grey;
 		      					}
 		      					.upvote_<%= ques.answers.first.id %>:hover{
 		      						background-color: lightgrey;
 		      						color: inherit;
-		      						border: 1px solid black;
+		      						border: 1px solid grey;
 		      					}
 		      					.answer .upvote_<%= ques.answers.first.id %>:active{
 		      						background-color: grey;

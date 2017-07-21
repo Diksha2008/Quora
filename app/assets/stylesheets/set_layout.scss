@@ -26,11 +26,21 @@ header.siteHeader{
  	}
  	nav ul.navigate {
 	 	display: flex;
+	 	a.navLink{
+		 	display:flex;
+		 	color: #333;
+	 	}
+	 	a.navLink:hover{
+	 		cursor: pointer;
+	 		text-decoration: none;
+	 		background: none;
+	 	} 	
 	 	li{
 	 		list-style: none;
 	 	}
 	 	li.nav {
 	 		display: flex;
+	 		align-items: center;
 		 	margin-right: 40px;
 		 	padding: 6px;	
 		 	font-size: 16px;
@@ -38,11 +48,6 @@ header.siteHeader{
 		 		font-size: 24px;
 		 		margin-right: 6px;
 		 	}
-		 	a:hover{
-		 		cursor: pointer;
-		 		text-decoration: none;
-		 		background: none;
-		 	} 	
 		}
 		li.nav:hover {
 		 		background-color: #ececec;

@@ -12,13 +12,17 @@
 </head>
 <body>
   <% if notice %>
-	 <p class="notice"><%= notice %></p>
+	  <script type="text/javascript">
+      noty({text: '<%= notice %>', type: 'alert', timeout: 5000});
+    </script>
   <% end %>
 
   <% if alert %>
-     <p class="alert"><%= alert %></p>
+     <script type="text/javascript">
+      noty({text: '<%= alert %>', type: 'error', timeout: 5000});
+    </script>
   <% end %>
-  
+
   <header class="siteHeader">
     <div class="logo">
       <%= image_tag 'download.png' %>
@@ -34,14 +38,18 @@
   <% end %>
     <nav>
       <ul class="navigate">
+      <%= link_to "/", :controller => "home", :action => "index", class: "navLink" do  %>
         <li class="nav">
-        <i class="fa fa-book" aria-hidden="true"></i>
-        <%= link_to "Read", :controller => "home", :action => "index" %>
+          <i class="fa fa-book" aria-hidden="true"></i>
+          <span>Read</span>
         </li>
-        <li class="nav">
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-          <%= link_to "Answer", :controller => "answers", :action => "index" %>
+        <% end %>
+         <%= link_to answers_path , class: "navLink" do%>
+        <li class="nav"> 
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>  
+          <span>Answer</span>
         </li>
+        <% end %>
        <!--  <li class="nav">
           <i class="fa fa-user" aria-hidden="true"></i>
           <%= link_to "Profile", :controller => "home", :action => "profile" %>

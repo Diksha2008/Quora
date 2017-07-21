@@ -36,6 +36,11 @@ main.wrapper {
 				font-size: 16px;
 			}
 		}
+		h2.quesContent{
+			a{
+				color: #333;
+			}
+		}
 		div.answerOf{
 			display: flex;
 			aside img {
@@ -49,6 +54,7 @@ main.wrapper {
 		div.answer {
 			margin-left: 12px;
 			padding: 12px;
+			border: 1px solid #e2e2e2;
 		}
 	}
 }

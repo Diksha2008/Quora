@@ -1,7 +1,12 @@
 <div class="question">
-	<h2 class="quesContent"><%= ques.content %></h2>
+	<h2 class="quesContent">
+		<%= link_to  ques.content, question_path(ques) %>
+	</h2>
 	<div id="actions">
-	  <button id="editor_<%=ques.id%>">Answer</button>
+	  <button id="editor_<%=ques.id%>" class="btn btn-secondary">
+	  	<i class="fa fa-pencil" aria-hidden="true"></i> 
+	  	Answer
+	  </button>
 	  
 	  <%=  form_for(@answer, :html => {:id => "editContainer_#{ques.id}"}) do |f| %>
 		  	<div class="field">
@@ -12,7 +17,7 @@
 			    <%= f.hidden_field :question_id , value: ques.id %>
 	  		</div>
 	  		<div class="submit">
-				<%= f.submit "Submit Answer"%>
+				<%= f.submit "Submit Answer", class: "btn btn-secondary"%>
 			</div>
 	  <% end %>
 	</div>
