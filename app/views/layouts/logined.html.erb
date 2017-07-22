@@ -27,7 +27,7 @@
     <div class="logo">
       <%= image_tag 'download.png' %>
     </div>
-   <%= form_for @question do |f| %>
+   <%= form_for @question , remote: true do |f| %>
    <div class="field">
       <%= f.text_field :content , :size => 45 , class: "form-control", placeholder: "Ask a question"%>
     </div>

@@ -1,5 +1,5 @@
 <%= raw(ans.content) %>
-<%= link_to  "<i class=\"fa fa-arrow-up\" aria-hidden=\"true\"></i> #{ans.is_upvoted_string(current_user.id)}".html_safe , url_for(controller: 'upvote', action: 'toggle_upvote', ans_id: ans.id), method: :post, class: "btn btn-info upvote_#{ans.id}" , remote: true %>
+<%= link_to  "<i class=\"fa fa-arrow-up\" aria-hidden=\"true\"></i> #{ans.is_upvoted_string(current_user.id)}".html_safe , url_for(controller: 'upvote', action: 'toggle_upvote', ans_id: ans.id), method: :post, class: "upvote_#{ans.id} btn btn-info" , remote: true %>
 <% if ans.my_ans? current_user.id %>
 	<style type="text/css">
 		.upvote_<%= ans.id %>{

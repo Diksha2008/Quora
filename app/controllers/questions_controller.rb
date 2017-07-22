@@ -17,6 +17,7 @@ class QuestionsController < SetLayoutController
   # POST /questions
   # POST /questions.json
   def create
+    @answer = Answer.new # for form in /answers(js request)
     @question = Question.new(question_params)
     @question.user = current_user
 
@@ -24,6 +25,7 @@ class QuestionsController < SetLayoutController
       if @question.save
         format.html { redirect_to '/answers', notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
+        format.js { }
       else
         format.html { redirect_to '/answers', alert: 'Question cannot be blank! :(' }
         format.json { render json: @question.errors, status: :unprocessable_entity }

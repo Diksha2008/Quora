@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  def has_answered? answer_id
-  	return answers.where(answer_id) > 0
+  def has_answered? ques_id
+  	return answers.where(question_id: ques_id).length > 0
   end
 
 end

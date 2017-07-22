@@ -27,15 +27,15 @@ class AnswersController < SetLayoutController
   # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
-     @answer.user = current_user 
+    @answer.user = current_user 
 
-    if current_user.has_answered? @answer.id
-      return redirect '/'
+    if current_user.has_answered? @answer.question_id
+      return redirect_to '/answers', :flash => { :alert => "Already answered! :(" }
     end
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to '/', notice: 'Answer was successfully submitted.' }
+        format.html { redirect_to '/answers', notice: 'Answer was successfully submitted.' }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { redirect_to '/answers', alert: 'You cannot submit blank answer! :(' }
