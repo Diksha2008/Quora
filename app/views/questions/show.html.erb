@@ -6,8 +6,7 @@
   	<div class="question">
 	 	<h2 class="quesContent"><%= @question.content %></h2>
 	    <% @question.answers.each do |ans| %>
-	      <div class="answer">
-	      	<div class="answerOf">
+	      	<div class="ansOf">
 			<aside>
 				<% if ans.user.profile_picture %>
 					<img src="/uploads/<%= ans.user.profile_picture %>">
@@ -16,30 +15,11 @@
 				<% end %>
 			</aside>
 			<h4><%= ans.user.email %></h4>
-		  </div>
-	      	<%= raw(ans.content) %>
-	      	<%= link_to  "<i class=\"fa fa-arrow-up\" aria-hidden=\"true\"></i> #{ans.is_upvoted(current_user.id)}".html_safe , url_for(controller: 'upvote', action: 'newUpvote', ans_id: ans.id), method: :post, class: "btn btn-info upvote_#{ans.id}" %>
-  			<% if ans.upvoted_by current_user %>
-  				<style type="text/css">
-  					.upvote_<%= ans.id %>{
-  						background-color: lightgrey;
-  						border: 1px solid grey;
-  					}
-  					.upvote_<%= ans.id %>:hover{
-  						background-color: lightgrey;
-  						color: inherit;
-  						border: 1px solid grey;
-  					}
-  					.answer .upvote_<%= ans.id %>:active{
-  						background-color: grey;
-  						color: inherit;
-  						border: 1px solid black;
-  					}
-  				</style>
-  			<% end %>
-	      </div>
-	    <% end %>
-    </div>
+    		</div>
+   			<div class= "answer_<%= ans.id %>">
+	      		<%= render 'upvote', ans: ans %>
+	      	</div>
+	     <% end %>
   </section>
 </main>
 

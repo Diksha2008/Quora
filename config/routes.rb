@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   get 'home/index'
   get '/profile' => 'home#profile'
+  get '/myAnswers' => 'home#my_answers'
+  get '/myQuestions' => 'home#my_questions'
   post 'home/upload_image'
-  post '/upvote' => 'upvote#newUpvote'
+  post '/upvote' => 'upvote#toggle_upvote'
 
   root to: "home#index"
 

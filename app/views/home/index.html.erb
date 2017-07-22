@@ -6,7 +6,7 @@
 		    		<h2 class="quesContent">
 		    		<%= link_to  ques.content, question_path(ques) %>
 		    		</h2>
-		    		<div class="answerOf">
+		    		<div class="ansOf">
 		    			<aside>
 		    				<% if ques.answers.first.user.profile_picture %>
 								<img src="/uploads/<%= ques.answers.first.user.profile_picture %>">
@@ -16,28 +16,8 @@
 		    			</aside>
 		    			<h4><%= ques.answers.first.user.email %></h4>
 		    		</div>
-		    		<div class="answer">
-		      			<%= raw(ques.answers.first.content) %>
-		      			<%= link_to  "<i class=\"fa fa-arrow-up\" aria-hidden=\"true\"></i> #{ques.answers.first.is_upvoted(current_user.id)}".html_safe , url_for(controller: 'upvote', action: 'newUpvote', ans_id: ques.answers.first.id), method: :post, class: "btn btn-info upvote_#{ques.answers.first.id}" %>
-		      			<% if ques.answers.first.upvoted_by current_user %>
-		      				<style type="text/css">
-		      					.upvote_<%= ques.answers.first.id %>{
-		      						background-color: lightgrey;
-		      						border: 1px solid grey;
-		      					}
-		      					.upvote_<%= ques.answers.first.id %>:hover{
-		      						background-color: lightgrey;
-		      						color: inherit;
-		      						border: 1px solid grey;
-		      					}
-		      					.answer .upvote_<%= ques.answers.first.id %>:active{
-		      						background-color: grey;
-		      						color: inherit;
-		      						border: 1px solid black;
-		      					}
-		      				</style>
-		      			<% end %>
-
+		    		<div class="answer_<%= ques.answers.first.id %>">
+		      			<%= render 'questions/upvote', ans: ques.answers.first %>
 		      		</div>
 	      		</div>
 	      	<% end %>

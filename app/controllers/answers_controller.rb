@@ -5,7 +5,7 @@ class AnswersController < SetLayoutController
   # GET /answers
   # GET /answers.json
   def index
-    @questions = Question.all.order('created_at DESC')
+    @questions = Question.where.not(id: current_user.answers.collect(&:question_id)).order('created_at DESC')
     @answer = Answer.new
   end
 
@@ -27,7 +27,11 @@ class AnswersController < SetLayoutController
   # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
-    @answer.user = current_user
+     @answer.user = current_user 
+
+    if current_user.has_answered? @answer.id
+      return redirect '/'
+    end
 
     respond_to do |format|
       if @answer.save

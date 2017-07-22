@@ -8,6 +8,17 @@ class HomeController < SetLayoutController
   def profile
   end
 
+  #GET /myAnswers
+  def my_answers
+    @answers = current_user.answers
+  end
+
+  #GET /myQuestions
+  def my_questions
+    @questions = current_user.questions
+    @answer = Answer.new
+  end
+
   #POST /home/upload_image
   def upload_image
   	uploaded_file = params[:image]

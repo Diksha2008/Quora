@@ -1,0 +1,22 @@
+<main class="wrapper">
+	<section class="box">
+		<div class="question">
+		    <% @answers.each do |ans| %>
+		    <h2 class="quesContent"><%= link_to  ans.question.content, question_path(ans.question) %></h2>
+		    <div class="ansOf">
+				<aside>
+					<% if ans.user.profile_picture %>
+						<img src="/uploads/<%= ans.user.profile_picture %>">
+					<% else %>
+						<%= image_tag ("profile-pic.png") %>
+					<% end %>
+				</aside>
+				<h4><%= ans.user.email %></h4>
+	    	 </div>
+	    	<div class="answer_<%= ans.id %>">
+		      	<%= render '/questions/upvote', ans: ans %>
+		    </div>
+		    <% end %>
+	    </div>
+	</section>
+</main>

@@ -41,7 +41,7 @@ main.wrapper {
 				color: #333;
 			}
 		}
-		div.answerOf{
+		div.ansOf{
 			display: flex;
 			aside img {
 				height: 50px;
@@ -51,10 +51,11 @@ main.wrapper {
 				margin: 0 8px 12px 12px;
 			}
 		}
-		div.answer {
+		[class^="answer"], [class$="wer"]{
 			margin-left: 12px;
 			padding: 12px;
 			border: 1px solid #e2e2e2;
+			margin-bottom: 20px;
 		}
 	}
 }

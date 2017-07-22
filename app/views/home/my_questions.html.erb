@@ -1,0 +1,7 @@
+<main class="wrapper">
+  <section class="box">
+    <% @questions.each do |ques| %>
+      <%= render 'answers/question', ques: ques %>
+    <% end %>
+  </section>
+</main>
