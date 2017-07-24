@@ -2,6 +2,7 @@ class Question < ActiveRecord::Base
   validates :content, presence: true
   belongs_to :user
   has_many :answers
+  has_many :QuestionFollowMappings
 
   cattr_accessor :current_user
 
@@ -11,5 +12,17 @@ class Question < ActiveRecord::Base
 
   def random_ans
   	answers.order("RANDOM()").first;
+  end
+
+  def is_followed user_id
+    return QuestionFollowMapping.where(question_id: id, user_id: user_id).length > 0
+  end
+
+  def is_followed_string user_id
+    if is_followed user_id
+      return "Unfollow"
+    else
+      return "Follow"
+    end
   end
 end

@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get '/myQuestions' => 'home#my_questions'
   post 'home/upload_image'
   post '/upvote' => 'upvote#toggle_upvote'
-
+  post '/followQuestion/:id' => 'questions#follow_question'
+  # get '/followQuestion/:id' => 'questions#follow_question'
   root to: "home#index"
 
 

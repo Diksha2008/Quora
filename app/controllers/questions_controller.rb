@@ -1,9 +1,9 @@
 class QuestionsController < SetLayoutController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @questions = Question.all
-  end
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :follow_question]
+  before_action :authenticate_user!
+  # def index
+  #   @questions = Question.all
+  # end
   # GET /questions/1/edit
   # def edit
   # end
@@ -54,6 +54,21 @@ class QuestionsController < SetLayoutController
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def follow_question
+    follow_mapping = QuestionFollowMapping.where(question: @question, user: current_user).first
+    
+    if follow_mapping
+      follow_mapping.destroy!
+      @is_followed = false
+    else
+      QuestionFollowMapping.create(user: current_user, question: @question)
+      @is_followed = true
+    end
+    respond_to do |format|
+      format.js { }
     end
   end
 

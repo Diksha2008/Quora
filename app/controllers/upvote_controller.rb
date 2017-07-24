@@ -1,5 +1,5 @@
 class UpvoteController < ApplicationController
-
+	before_action :authenticate_user!
 	# POST /upvote
 	def toggle_upvote
 		@answer = Answer.find(params[:ans_id])

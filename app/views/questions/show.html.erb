@@ -4,7 +4,13 @@
 <main class="wrapper">
   <section class="box">
   	<div class="question">
-	 	<h2 class="quesContent"><%= @question.content %></h2>
+  		<div class="quesContent">
+    		<h2 ><%= @question.content %></h2>
+    		<div class="quesFollow">
+	    		<%= link_to "<i class=\"fa fa-plus\" aria-hidden=\"true\"></i> #{@question.is_followed_string current_user} | #{ @question.QuestionFollowMappings.count}".html_safe, url_for(controller: "questions", action: "follow_question", id: @question.id), method: :post, class: 'followQues', remote: true  %>
+	    	</div>
+    	</div>
+    	<h4 class="seperator">Answers: </h4>
 	    <% @question.answers.each do |ans| %>
 	      	<div class="ansOf">
 			<aside>
@@ -22,7 +28,3 @@
 	     <% end %>
   </section>
 </main>
-
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>

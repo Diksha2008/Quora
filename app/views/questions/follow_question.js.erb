@@ -1,0 +1,6 @@
+<% if @is_followed %>
+	$(".followQues").html('<i class="fa fa-plus" aria-hidden="true"></i> <%= "Unfollow | #{@question.QuestionFollowMappings.count}" %>')
+
+<% else %>
+	$('.followQues').html('<i class="fa fa-plus" aria-hidden="true"></i> <%= "Follow | #{@question.QuestionFollowMappings.count}" %>')
+<% end %>
