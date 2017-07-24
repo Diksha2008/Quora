@@ -7,12 +7,12 @@
 				<img src="profile-pic.png">
 			<% end %>
 		</div>
-		<div class="changePic">
+		<div class="changePic form-group">
 			<h4>Change profile picture:</h4>
 			<%= form_tag url_for(controller: :home, action: :upload_image), multipart: true, id: "browse" do %>
-			<%= file_field_tag :image%>
+			<%= file_field_tag :image %>
 			<br>
-			<%= submit_tag %>
+			<%= submit_tag "Submit", class: "btn btn-primary"%>
 			<% end %>
 		</div>
 		<div class="details">

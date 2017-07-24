@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 header.siteHeader{
  	display: flex;
+ 	position: fixed;
+ 	width: 100%;
+ 	background-color: white;
  	justify-content: space-between;
  	align-items: center;
  	height: 60px;
