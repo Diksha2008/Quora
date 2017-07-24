@@ -12,6 +12,7 @@ class QuestionsController < SetLayoutController
   # GET /questions/1
   # GET /answers/1.json
   def show
+    @answer = @question.answers.where(user: current_user).first
   end
   
 
