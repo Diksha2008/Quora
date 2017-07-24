@@ -4,9 +4,10 @@ class QuestionsController < SetLayoutController
   # def index
   #   @questions = Question.all
   # end
+
   # GET /questions/1/edit
-  # def edit
-  # end
+  def edit
+  end
 
   # GET /questions/1
   # GET /answers/1.json
@@ -35,17 +36,17 @@ class QuestionsController < SetLayoutController
 
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @question.update(question_params)
-  #       format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @question }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @question.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    respond_to do |format|
+      if @question.update(question_params)
+        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+        format.json { render :show, status: :ok, location: @question }
+      else
+        format.html { render :edit }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /questions/1
   # DELETE /questions/1.json
@@ -57,6 +58,7 @@ class QuestionsController < SetLayoutController
     end
   end
 
+  #POST /followQuestion/:id
   def follow_question
     follow_mapping = QuestionFollowMapping.where(question: @question, user: current_user).first
     

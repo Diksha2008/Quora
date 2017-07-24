@@ -4,14 +4,29 @@
 [class^="upvote"]{
 	margin-top: 12px;
 }
-.quesFollow {
-	margin: 6px;
-	align-text: right;
-	padding-bottom: 10px;
+.quesActions {
+	padding-bottom: 18px;
+	padding-top: 18px;
 }
+
+.quesActionBtn {
+	margin-right: 12px;
+	border: 1px solid #c4d1e0;
+	border-radius: 4px;
+	padding: 6px;
+	background-color: #f1f8fb;
+}
+.quesActionBtn:link {
+	text-decoration: none;
+}
+
 h4.seperator{
 	border-top: 1px solid grey;
 	font-weight: bold;
 	padding-top: 12px;
 	margin-bottom: 24px;
+}
+
+.quesActions{
+	display: flex;
 }

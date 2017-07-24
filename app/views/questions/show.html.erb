@@ -1,13 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-
 <main class="wrapper">
   <section class="box">
   	<div class="question">
   		<div class="quesContent">
     		<h2 ><%= @question.content %></h2>
-    		<div class="quesFollow">
-	    		<%= link_to "<i class=\"fa fa-plus\" aria-hidden=\"true\"></i> #{@question.is_followed_string current_user} | #{ @question.QuestionFollowMappings.count}".html_safe, url_for(controller: "questions", action: "follow_question", id: @question.id), method: :post, class: 'followQues', remote: true  %>
+    		<div class="quesActions">
+	    		<div class="quesFollow">
+		    		<%= link_to "<i class=\"fa fa-plus\" aria-hidden=\"true\"></i> #{@question.is_followed_string current_user} | #{ @question.QuestionFollowMappings.count}".html_safe, url_for(controller: "questions", action: "follow_question", id: @question.id), method: :post, class: 'followQues quesActionBtn', remote: true  %>
+		    	</div>
+		    	<div class="quesEdit">
+		    		<a href="#" type="button" class="quesActionBtn" data-toggle="modal" data-target="#myModal">Edit Question</a>
+		    		<!-- Modal -->
+					<div id="myModal" class="modal fade" role="dialog">
+					  <div class="modal-dialog">
+
+					    <!-- Modal content-->
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal">&times;</button>
+					        <h4 class="modal-title">Editing Question</h4>
+					      </div>
+					      <div class="modal-body">
+					        <p><%= render 'form' %></p>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					      </div>
+					    </div>
+
+					  </div>
+					</div>
+		    	</div>
 	    	</div>
     	</div>
     	<h4 class="seperator">Answers: </h4>

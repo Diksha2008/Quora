@@ -23,12 +23,12 @@
       </ul>
     </div>
   <% end %>
-   <div class="field">
-      <%= f.text_field :content%>
+   <div class="field form-group">
+      <%= f.text_field :content, class: "form-control"%>
     </div>
 
     <div class="actions">
-      <%= f.submit "Ask question" %>
+      <%= f.submit class: 'btn btn-primary'%>
     </div>
     <% end %>
   <% end %>
