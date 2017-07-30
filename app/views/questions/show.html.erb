@@ -13,6 +13,7 @@
 		    	</div>
 	    	</div>
     	</div>
+    	<% if @question.has_answer? %>
     	<h4 class="seperator">Answers: </h4>
 	    <% @question.answers.each do |ans| %>
 	      	<div class="ansOf">
@@ -28,10 +29,13 @@
    			<div class= "answer_<%= ans.id %>">
 	      		<%= render 'upvote', ans: ans %>
 	      		<% if ans.my_ans? current_user.id %>
-		      		<a href="#" type="button" class="quesActionBtn" data-toggle="modal" data-target="#myansModal">Edit Answer</a>
+		      		<a href="#" type="button" class="quesActionBtn" data-toggle="modal" data-target="#myansModal_<%= ans.id %>">Edit Answer</a>
 					<%= render 'ansModal' %>
 				<% end %>
 	      	</div>
+	     <% end %>
+	     <% else %>
+	     	<h4 class="seperator">No answers yet!</h4>
 	     <% end %>
   </section>
 </main>

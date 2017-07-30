@@ -6,7 +6,7 @@
 }
 .quesActions {
 	padding-bottom: 18px;
-	padding-top: 18px;
+	display: flex;
 }
 
 .quesActionBtn {
@@ -27,8 +27,4 @@ h4.seperator{
 	font-weight: bold;
 	padding-top: 12px;
 	margin-bottom: 24px;
-}
-
-.quesActions{
-	display: flex;
 }

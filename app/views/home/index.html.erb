@@ -2,22 +2,23 @@
   <section class="box">
     <% @questions.each do |ques| %>
 	    	<% if ques.has_answer? %>
+	    	<% ans = ques.random_ans(current_user.id) %>
 	    		<div class="question">
 		    		<h2 class="quesContent">
 		    		<%= link_to  ques.content, question_path(ques) %>
 		    		</h2>
 		    		<div class="ansOf">
 		    			<aside>
-		    				<% if ques.answers.first.user.profile_picture %>
-								<img src="/uploads/<%= ques.answers.first.user.profile_picture %>">
+		    				<% if ans.user.profile_picture %>
+								<img src="/uploads/<%= ans.user.profile_picture %>">
 							<% else %>
 								<img src="profile-pic.png">
 							<% end %>
 		    			</aside>
-		    			<h4><%= ques.answers.first.user.email %></h4>
+		    			<h4><%= ans.user.email %></h4>
 		    		</div>
-		    		<div class="answer_<%= ques.answers.first.id %>">
-		      			<%= render 'questions/upvote', ans: ques.answers.first %>
+		    		<div class="answer_<%= ans.id %>">
+		      			<%= render 'questions/upvote', ans: ans %>
 		      		</div>
 	      		</div>
 	      	<% end %>

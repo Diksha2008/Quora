@@ -10,8 +10,8 @@ class Question < ActiveRecord::Base
   	return answers.where.not(:user_id => current_user.id).count > 0
   end
 
-  def random_ans
-  	answers.order("RANDOM()").first;
+  def random_ans user_id
+  	return answers.where.not(user_id: user_id).order("RANDOM()").first
   end
 
   def is_followed user_id
